@@ -4,7 +4,7 @@ import { Wrapper } from './styled';
 const Loader = () => {
   return (
     <Wrapper>
-      <div className='preloader'>
+      {/* <div className='preloader'>
         <div className='preloader__ring'>
           <div className='preloader__sector'>L</div>
           <div className='preloader__sector'>o</div>
@@ -69,7 +69,8 @@ const Loader = () => {
           <div className='preloader__sector' />
           <div className='preloader__sector' />
         </div>
-      </div>
+      </div> */}
+      <div class='spinner'></div>
     </Wrapper>
   );
 };

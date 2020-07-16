@@ -10,7 +10,7 @@ import { Button, Icon } from 'semantic-ui-react';
 import Footer from '../Fotter/Footer';
 import Drawer from '../Drawer/Drawer';
 
-const Project = () => {
+const Project = ({ onRouteChange }) => {
   const { projectId } = useParams();
 
   const [state, setState] = useState({ project: null });
@@ -24,7 +24,7 @@ const Project = () => {
   return (
     <Wrapper>
       <Drawer />
-      <NavMenu />
+      <NavMenu onRouteChange={onRouteChange} />
       {state.project ? (
         <Main>
           <h1>{state.project.title}</h1>

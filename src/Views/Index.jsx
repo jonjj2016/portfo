@@ -3,12 +3,13 @@ import Slider from '../components/Slider';
 import Aos from '../components/Aos';
 import { projects } from '../data/projects';
 import { BrowserRouter } from 'react-router-dom';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import Project from '../components/Project/Project';
 
 import 'aos/dist/aos.css';
 
 const Index = () => {
+  // const history = useHistory();
   const [state, setState] = useState({
     projects: projects,
     directories: ['main', 'about', 'projects', 'skills'],
@@ -27,11 +28,16 @@ const Index = () => {
     console.log(index);
     setState({ ...state, page: index, drawer_isopen: false });
   };
+
+  const onRouteChange = () => {
+    setState({ ...state, page: 2 });
+    // history.push('/');
+  };
   return (
     <BrowserRouter>
       <Aos duration={2000}>
         <Switch>
-          <Route path={`/projects/:projectId`} render={() => <Project toggle_drawer={toggle_drawer} />} />
+          <Route path={`/projects/:projectId`} render={() => <Project onRouteChange={onRouteChange} toggle_drawer={toggle_drawer} />} />
           <Route exact path='/' render={() => <Slider state={state} toggle_drawer={toggle_drawer} onMenuItemClick={onMenuItemClick} changeDir={changeDir}></Slider>} />
         </Switch>
       </Aos>

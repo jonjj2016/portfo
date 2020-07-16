@@ -69,8 +69,9 @@ const Wrapper = styled.div`
       font-size: 1.2rem;
       padding: 0.1rem;
       border: none;
-      line-height: 1.5;
+      line-height: 1.2;
       margin: 4rem auto;
+      letter-spacing: 1px;
     }
     h1 {
       color: #333;
